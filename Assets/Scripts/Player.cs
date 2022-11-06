@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    GameManager gm;
+
+    //경험치
+    public float exp;
+    //레벨
+    public int level;
+
+
+
     //이동속도
     public float moveSpeed;
     //리지드바디
@@ -24,13 +33,16 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameManager.GetInstance();
         playerRigidbody = GetComponent<Rigidbody2D>();
         moveSpeed = 300f;
+        exp = 0;
+        level = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerMove();
+
     }
 }
