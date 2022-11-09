@@ -54,5 +54,7 @@ public class GameManager : MonoBehaviour
     {
         player.PlayerMove();
         bg.BackgroundMove();
+        enemy.EnemyMove();
+        player.PlayerAtt();
     }
 }

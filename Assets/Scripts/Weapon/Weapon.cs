@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    GameManager gm;
+    public GameManager gm;
     /// <summary>
     /// 탄막의 종류
     /// 0일반,1폭팔,2관통,3장막,4장판
     /// </summary>
-    public enum BulletType
+    public enum WeaponType
     {
         Normal,
         Explosion,
@@ -20,8 +20,13 @@ public class Weapon : MonoBehaviour
         MAX
     }
 
-    GameObject Bullet;
-    // Start is called before the first frame update
+    public Bullet bullet;
+
+    public virtual void Attack()
+    {
+        Debug.Log("attack");
+    }
+
     void Start()
     {
         gm = GameManager.GetInstance();

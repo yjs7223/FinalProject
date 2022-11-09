@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     //레벨
     public int level;
 
-
+    public List<Weapon> weapons = new List<Weapon>();
 
     //이동속도
     public float moveSpeed;
@@ -30,6 +30,14 @@ public class Player : MonoBehaviour
         playerRigidbody.velocity = velosity;
     }
 
+    public void PlayerAtt()
+    {
+        for(int i = 0; i < weapons.Count; i++)
+        {
+            weapons[i].Attack();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +46,8 @@ public class Player : MonoBehaviour
         moveSpeed = 300f;
         exp = 0;
         level = 0;
+        weapons.Add(Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/NormalWeapon"),transform));
+        weapons[0].transform.position = transform.position;
     }
 
     // Update is called once per frame
