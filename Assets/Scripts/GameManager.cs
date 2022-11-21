@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public BackGround bg;
     public Player player;
     public Enemy enemy;
+    public EnemyCreater ec;
     //public Weapon weapon;
     //public Item item;
 
@@ -52,9 +53,7 @@ public class GameManager : MonoBehaviour
 
     void MainLoop()
     {
-        player.PlayerMove();
         bg.BackgroundMove();
-        enemy.EnemyMove();
         player.PlayerAtt();
     }
 }

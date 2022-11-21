@@ -5,6 +5,20 @@ using UnityEngine;
 public class BackGround : MonoBehaviour
 {
     GameManager gm;
+    public List<GameObject> BgObjList;
+
+    public void BackGroundSet()
+    {
+        BgObjList[0].transform.localPosition = new Vector3(-15, 15, 0);
+        BgObjList[1].transform.localPosition = new Vector3( 0, 15, 0);
+        BgObjList[2].transform.localPosition = new Vector3(15, 15, 0);
+        BgObjList[3].transform.localPosition = new Vector3(-15, 0, 0);
+        BgObjList[4].transform.localPosition = new Vector3(0, 0, 0);
+        BgObjList[5].transform.localPosition = new Vector3(15, 0, 0);
+        BgObjList[6].transform.localPosition = new Vector3(-15, -15, 0);
+        BgObjList[7].transform.localPosition = new Vector3(0, -15, 0);
+        BgObjList[8].transform.localPosition = new Vector3(15, -15, 0);
+    }
 
     public void BackgroundMove()
     {
@@ -38,6 +52,8 @@ public class BackGround : MonoBehaviour
     void Start()
     {
         gm = GameManager.GetInstance();
+        gm.bg = this;
+        BackGroundSet();
     }
 
     // Update is called once per frame

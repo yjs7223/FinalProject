@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     {
         gm = GameManager.GetInstance();
         playerRigidbody = GetComponent<Rigidbody2D>();
-        moveSpeed = 300f;
+        moveSpeed = 400f;
         exp = 0;
         level = 0;
         weapons.Add(Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/NormalWeapon"),transform));
@@ -53,6 +53,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        PlayerMove();
     }
 }

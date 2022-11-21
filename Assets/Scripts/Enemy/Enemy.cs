@@ -41,12 +41,12 @@ public class Enemy : MonoBehaviour
         gm = GameManager.GetInstance();
         rb = GetComponent<Rigidbody2D>();
         target = gm.player.transform;
-        speed = 4;
+        speed = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        EnemyMove();
     }
 }
