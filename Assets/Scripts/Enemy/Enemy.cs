@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     GameManager gm;
+    public int enemynum;
 
     public enum EnemyType
     {
@@ -30,7 +31,25 @@ public class Enemy : MonoBehaviour
     {
         if(collision.tag == "Bullet")
         {
-            Destroy(gameObject);
+            GameObject exp = Instantiate(Resources.Load<GameObject>("Prefabs/Item/ExpItem"));
+            exp.transform.position = transform.position;
+
+            if (gm.ec.enemyList.Count <= enemynum || gm.ec.enemyList[enemynum] != gameObject)
+            {
+                for(int i =0; i < gm.ec.enemyList.Count; i++)
+                {
+                    if(gm.ec.enemyList[i] == gameObject)
+                    {
+                        gm.ec.enemyList.RemoveAt(i);
+                        Destroy(gameObject);
+                    }
+                }
+            }
+            else
+            {
+                gm.ec.enemyList.RemoveAt(enemynum);
+                Destroy(gameObject);
+            }
         }
     }
 

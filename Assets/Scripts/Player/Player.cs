@@ -55,4 +55,24 @@ public class Player : MonoBehaviour
     {
         PlayerMove();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Enemy")
+        {
+            Debug.Log("Die");
+        }
+        else if(collision.tag == "Exp")
+        {
+            Debug.Log("GetExp");
+            exp += collision.GetComponent<ExpItem>().exp;
+            if(exp >= 10)
+            {
+                Debug.Log("LevelUP");
+                level++;
+                exp = 0;
+            }
+            Destroy(collision.gameObject);
+        }
+    }
 }

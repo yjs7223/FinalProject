@@ -6,8 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public BackGround bg;
     public Player player;
-    public Enemy enemy;
     public EnemyCreater ec;
+    public UIManager uim;
     //public Weapon weapon;
     //public Item item;
 
