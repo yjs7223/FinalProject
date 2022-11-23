@@ -11,6 +11,11 @@ public class UIManager : MonoBehaviour
     public Slider expSlider;
     public TextMeshProUGUI TimerText;
 
+    public float nowtime;
+    public float oldtime;
+    public int second;
+    public int minute;
+
     public void UIUpdate()
     {
         levelText.text = gm.player.level.ToString();
@@ -25,12 +30,56 @@ public class UIManager : MonoBehaviour
         expSlider.value = gm.player.exp / 10;
 
         //시간만들기
+        TimeCheck();
+        //텍스트 변경(서식 적용(00:00))
+        if(second < 10)
+        {
+            if(minute < 10)
+            {
+                TimerText.text = $"0{minute}:0{second}";
+            }
+            else
+            {
+                TimerText.text = $"{minute}:0{second}";
+            }
+        }
+        else
+        {
+            if (minute < 10)
+            {
+                TimerText.text = $"0{minute}:{second}";
+            }
+            else
+            {
+                TimerText.text = $"{minute}:{second}";
+            }
+        }
+    }
+
+    public void TimeCheck()
+    {
+        nowtime += Time.deltaTime;
+        if((nowtime - oldtime) > 1)
+        {
+            oldtime = nowtime;
+            second++;
+            if(second == 60)
+            {
+                minute++;
+                second = 0;
+            }
+        }
+
     }
 
     void Start()
     {
         gm = GameManager.GetInstance();
         gm.uim = this;
+        nowtime = 0;
+        oldtime = 0;
+        second = 0;
+        minute = 0;
     }
 
     void Update()

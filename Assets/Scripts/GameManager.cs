@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //외부에서 사용할 변수나 함수를 게임매니저를 거쳐 사용 
     public BackGround bg;
     public Player player;
     public EnemyCreater ec;
@@ -11,9 +12,19 @@ public class GameManager : MonoBehaviour
     //public Weapon weapon;
     //public Item item;
 
+    /// <summary>
+    /// 본인 인스턴스를 가질변수
+    /// </summary>
     static GameManager instance;
+    /// <summary>
+    /// 게임매니저 인스턴스를 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
     public static GameManager GetInstance() { Init(); return instance; }
 
+    /// <summary>
+    /// 본인 인스턴스 할당(있으면 실행x)
+    /// </summary>
     static void Init()
     {
         if (instance == null)

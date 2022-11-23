@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     //레벨
     public int level;
 
+    public float hp;
+
+    public float damageDelay;
+
     public List<Weapon> weapons = new List<Weapon>();
 
     //이동속도
@@ -44,8 +48,10 @@ public class Player : MonoBehaviour
         gm = GameManager.GetInstance();
         playerRigidbody = GetComponent<Rigidbody2D>();
         moveSpeed = 400f;
+        damageDelay = 1;
         exp = 0;
         level = 0;
+        hp = 20;
         weapons.Add(Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/NormalWeapon"),transform));
         weapons[0].transform.position = transform.position;
     }
@@ -56,13 +62,23 @@ public class Player : MonoBehaviour
         PlayerMove();
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            damageDelay += Time.deltaTime;
+            if (damageDelay > 1)
+            {
+                hp -= collision.GetComponent<Enemy>().att;
+                damageDelay = 0;
+                Debug.Log($"Damaged | Player HP : {hp}");
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enemy")
-        {
-            Debug.Log("Die");
-        }
-        else if(collision.tag == "Exp")
+        if(collision.tag == "Exp")
         {
             Debug.Log("GetExp");
             exp += collision.GetComponent<ExpItem>().exp;
