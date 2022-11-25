@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     {
         Normal,
         Explosion,
-        Penetrate,
+        pierce,
         Curtain,
         Floor,
 

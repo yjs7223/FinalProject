@@ -886,6 +886,7 @@ MonoBehaviour:
   enemyList: []
   createPoint: 0
   isFullEnemy: 0
+  createDelay: 0
   bgpos: {x: 0, y: 0, z: 0}
   createpos: {x: 0, y: 0, z: 0}
 --- !u!1 &642435478

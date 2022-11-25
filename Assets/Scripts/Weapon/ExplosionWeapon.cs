@@ -25,7 +25,6 @@ public class ExplosionWeapon : Weapon
 
     void Start()
     {
-        //폭발투사체 프리팹으로 변경
         bullet = Resources.Load<Bullet>("Prefabs/Bullet/ExplosionBullet");
         attSpeed = 4f;
         attDelay = 0;
@@ -33,6 +32,7 @@ public class ExplosionWeapon : Weapon
 
     void Update()
     {
-        
+
     }
 }
+

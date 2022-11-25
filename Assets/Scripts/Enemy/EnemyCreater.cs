@@ -9,6 +9,7 @@ public class EnemyCreater : MonoBehaviour
     public List<GameObject> enemyList;
     public int createPoint;
     public bool isFullEnemy;
+    public float createDelay;
 
     public Vector3 bgpos;
     public Vector3 createpos;   
@@ -53,7 +54,7 @@ public class EnemyCreater : MonoBehaviour
             {
                 isFullEnemy = true;
             }
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(createDelay);
         }
     }
 
@@ -64,6 +65,7 @@ public class EnemyCreater : MonoBehaviour
         gm.ec = this;
         Enemy = Resources.Load<GameObject>("Prefabs/Enemy/Enemy1");
         isFullEnemy = false;
+        createDelay = 0.5f;
         StartCoroutine(EnemyCreate());
     }
 

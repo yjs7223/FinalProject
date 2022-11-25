@@ -5,17 +5,22 @@ using UnityEngine;
 public class ExplosionBullet : Bullet
 {
     public float explostionAtt;
+
+    public GameObject explosion;
+
     //폭발처리 추가
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
-            //collision.GetComponent<Enemy>().hp -= att;
+            collision.GetComponent<Enemy>().hp -= att;
             if (collision.GetComponent<Enemy>().hp <= 0)
             {
                 collision.GetComponent<Enemy>().isDie = true;
             }
-            Debug.Log($"explosion bullet att ");
+            Debug.Log($"explosion bullet att | Enemy Hp : {collision.GetComponent<Enemy>().hp}");
+            GameObject e = Instantiate(explosion);
+            e.transform.position = gameObject.transform.position;
             Destroy(gameObject);
         }
     }
@@ -40,6 +45,6 @@ public class ExplosionBullet : Bullet
     // Update is called once per frame
     void Update()
     {
-        
+        BulletMove();
     }
 }

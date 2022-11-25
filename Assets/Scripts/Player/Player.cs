@@ -50,9 +50,9 @@ public class Player : MonoBehaviour
         moveSpeed = 400f;
         damageDelay = 1;
         exp = 0;
-        level = 0;
+        level = 1;
         hp = 20;
-        weapons.Add(Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/NormalWeapon"),transform));
+        weapons.Add(Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/ExplosionWeapon"),transform));
         weapons[0].transform.position = transform.position;
     }
 
