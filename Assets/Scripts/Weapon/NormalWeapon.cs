@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class NormalWeapon : Weapon
 {
-    public float attSpeed;
-    public float attDelay;
-
+    
     public override void Attack()
     {
         attDelay += Time.deltaTime;
@@ -23,8 +21,10 @@ public class NormalWeapon : Weapon
 
     void Start()
     {
+        gm = GameManager.GetInstance();
         bullet = Resources.Load<Bullet>("Prefabs/Bullet/NormalBullet");
-        attSpeed = 3f;
+        type = WeaponType.Normal;
+        attSpeed = 2f;
         attDelay = 0;
     }
 

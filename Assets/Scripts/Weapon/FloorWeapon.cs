@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
-public class ExplosionWeapon : Weapon
+public class FloorWeapon : Weapon
 {
+    
     public override void Attack()
     {
         attDelay += Time.deltaTime;
         if (attDelay >= attSpeed)
         {
-            Debug.Log("explosion attack");
+            Debug.Log("floor attack");
             Bullet b = Instantiate(bullet);
             Vector3 temppos = transform.position;
             temppos.z = 0.1f;
@@ -20,18 +19,20 @@ public class ExplosionWeapon : Weapon
         }
     }
 
+    // Start is called before the first frame update
     void Start()
     {
         gm = GameManager.GetInstance();
-        bullet = Resources.Load<Bullet>("Prefabs/Bullet/ExplosionBullet");
-        type = WeaponType.Explosion;
+        bullet = Resources.Load<Bullet>("Prefabs/Bullet/FloorBullet");
+        type = WeaponType.Floor;
+        
         attSpeed = 4f;
         attDelay = 0;
     }
 
+    // Update is called once per frame
     void Update()
     {
-
+        
     }
 }
-

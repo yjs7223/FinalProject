@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         exp = 0;
         level = 1;
         hp = 20;
-        weapons.Add(Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/ExplosionWeapon"),transform));
+        weapons.Add(Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/FloorWeapon"),transform));
         weapons[0].transform.position = transform.position;
     }
 

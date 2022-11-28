@@ -26,7 +26,10 @@ public class NormalBullet : Bullet
 
         //가까운적 찾기
         FindTarget();
-        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
         speed = 30f;
         rspeed = 10f;
         att = 5;

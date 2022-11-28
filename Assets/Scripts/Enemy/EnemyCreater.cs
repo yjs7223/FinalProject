@@ -65,7 +65,7 @@ public class EnemyCreater : MonoBehaviour
         gm.ec = this;
         Enemy = Resources.Load<GameObject>("Prefabs/Enemy/Enemy1");
         isFullEnemy = false;
-        createDelay = 0.5f;
+        createDelay = 10f;
         StartCoroutine(EnemyCreate());
     }
 

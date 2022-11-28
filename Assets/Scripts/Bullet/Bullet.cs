@@ -8,15 +8,41 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public GameManager gm;
+    /// <summary>
+    /// 무기의 타입
+    /// </summary>
     public Weapon.WeaponType btype;
+    /// <summary>
+    /// 추적할 적
+    /// </summary>
     public GameObject target = null;
+    //적의 위치값
     public Vector3 targetpos;
+    //물리현상을 사용하기위한 리지드바디
     public Rigidbody2D rb;
+
+    /// <summary>
+    /// 탄막의 공격력
+    /// </summary>
     public float att;
+    /// <summary>
+    /// 탄막의 이동속도
+    /// </summary>
     public float speed;
+    /// <summary>
+    /// 탄막의 회전속도
+    /// </summary>
     public float rspeed;
 
-    public void BulletMove()
+    /// <summary>
+    /// 탄막의 갯수
+    /// </summary>
+    public int bnum;
+
+    /// <summary>
+    /// 탄막의 이동함수(기본형)
+    /// </summary>
+    public virtual void BulletMove()
     {
         /*float angle = Mathf.Atan2(targetpos.y, targetpos.x) * Mathf.Rad2Deg;
         Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
@@ -54,6 +80,9 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 추적할 적 지정(가까운 적 우선 타겟팅)
+    /// </summary>
     public void FindTarget()
     {
         if (gm.ec.enemyList[0] == null)
@@ -91,7 +120,7 @@ public class Bullet : MonoBehaviour
 
     }
 
-    //적위치를 바라보기 (수정 해야함)
+    //탄막을 적 위치 방향으로 회전 (추후수정)
     public void BulletRotate()
     {
         if (target == null)
@@ -113,7 +142,7 @@ public class Bullet : MonoBehaviour
         gm = GameManager.GetInstance();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         

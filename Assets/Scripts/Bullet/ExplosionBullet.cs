@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class ExplosionBullet : Bullet
 {
-    public float explostionAtt;
-
     public GameObject explosion;
 
-    //폭발처리 추가
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
@@ -32,11 +30,17 @@ public class ExplosionBullet : Bullet
 
         //가까운적 찾기
         FindTarget();
-        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+        if(explosion == null)
+        {
+            explosion = Resources.Load<GameObject>("Prefabs/Bullet/Explosion");
+        }
         speed = 10f;
         rspeed = 10f;
         att = 10;
-        explostionAtt = 5f;
 
         //탄막의 방향 설정
         BulletRotate();
