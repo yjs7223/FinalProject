@@ -85,7 +85,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public void FindTarget()
     {
-        if (gm.ec.enemyList[0] == null)
+        if (gm.ec.enemyList.Count < 1 || gm.ec.enemyList[0] == null)
         {
             return;
         }
@@ -93,7 +93,7 @@ public class Bullet : MonoBehaviour
         float dis1 = Vector3.Distance(gm.player.transform.position, gm.ec.enemyList[0].transform.position);
         target = gm.ec.enemyList[0];
 
-        if (gm.ec.enemyList[1] == null)
+        if (gm.ec.enemyList.Count < 2 || gm.ec.enemyList[1] == null)
         {
             return;
         }

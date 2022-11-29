@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalWeapon : Weapon
+public class PierceWeapon : Weapon
 {
-    
     public override void Attack()
     {
         attDelay += Time.deltaTime;
-        if(attDelay >= attSpeed)
+        if (attDelay >= attSpeed)
         {
-            Debug.Log("normal attack");
+            Debug.Log("pierce attack");
             Bullet b = Instantiate(bullet);
             Vector3 temppos = transform.position;
             temppos.z = 0.1f;
@@ -22,11 +21,12 @@ public class NormalWeapon : Weapon
     void Start()
     {
         gm = GameManager.GetInstance();
-        bullet = Resources.Load<Bullet>("Prefabs/Bullet/NormalBullet");
-        type = WeaponType.Normal;
-        attSpeed = 1f;
+        bullet = Resources.Load<Bullet>("Prefabs/Bullet/PierceBullet");
+        type = WeaponType.Pierce;
+        attSpeed = 3f;
         attDelay = 0;
     }
+
 
     void Update()
     {
