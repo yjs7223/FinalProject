@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7199472658528441979}
   - component: {fileID: 4535683570163619755}
   - component: {fileID: -4603889098229195580}
+  - component: {fileID: 8281394901783383712}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4535683570163619755
 SpriteRenderer:
@@ -101,3 +102,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &8281394901783383712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6322096140882893787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8af5504d2e9f7a41a1b1aebc00b83a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorAtt: 0
+  delay: 0
+  a: 0
+  isupa: 0
+  r: {fileID: 4535683570163619755}

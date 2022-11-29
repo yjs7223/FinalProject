@@ -19,6 +19,8 @@ public class FloorBullet : Bullet
     /// </summary>
     public Vector3 p1, p2, p3;
 
+    public Easing.EasingFunction ef;
+
     public void SetPoint()
     {
         //시작위치(플레이어 위치)
@@ -26,25 +28,25 @@ public class FloorBullet : Bullet
 
         //2번째 점(플레이어 위치에서 좌우 위쪽 랜덤 지정)
         float randx = Random.Range(-2f, 2f);
-        float randy = Random.Range(0.8f, 2f);
+        float randy = Random.Range(1f, 3f);
         p2 = new Vector3(p1.x + randx, p1.y + randy, 0);
 
         if (randx < 0)
         {
-            randx = Random.Range(-0.5f, -2f);
+            randx = Random.Range(-0.1f, -2f);
         }
         else
         {
-            randx = Random.Range(0.5f, 2f);
+            randx = Random.Range(0.1f, 2f);
         }
-        randy = Random.Range(0.3f, 4f);
+        randy = Random.Range(0.2f, 4f);
         p3 = new Vector3(p2.x + randx, p2.y - randy, 0);
     }
 
     //베지어곡선으로 이동
     public override void BulletMove()
     {
-        transform.position = BezierCurve(transform.position, p2, p3, moveValue);
+        transform.position = BezierCurve(p1, p2, p3, moveValue);
         /*if(transform.position.sqrMagnitude >= p2.sqrMagnitude)
         {
             rb.MovePosition(transform.position + (p3 * speed * Time.deltaTime));
@@ -61,17 +63,15 @@ public class FloorBullet : Bullet
             Destroy(gameObject);
         }
 
-        Easing.EasingFunction ef;
-        if (moveValue <= 0.5f)
+        if (ef == null)
         {
-            ef = Easing.GetEasingFunction(Easing.EaseType.easeOutQuint);
-            moveValue += ef(0, 0.5f, 0.1f) * Time.deltaTime;
+            ef = Easing.GetEasingFunction(Easing.EaseType.easeInOutSine);
         }
-        else
+        else if(moveValue > 0.3f)
         {
-            ef = Easing.GetEasingFunction(Easing.EaseType.easeInQuint);
-            moveValue += ef(0.5f, 1f, 0.1f) * Time.deltaTime;
+            ef = Easing.GetEasingFunction(Easing.EaseType.easeInCubic);
         }
+        moveValue += ef(0f, 1f, speed) * Time.deltaTime;
     }
 
     Vector3 BezierCurve(Vector3 p1, Vector3 p2, Vector3 p3, float value)
@@ -99,8 +99,8 @@ public class FloorBullet : Bullet
         {
             floor = Resources.Load<GameObject>("Prefabs/Bullet/Floor");
         }
-        speed = 0.5f;
-        moveValue = 0;
+        speed = 0.8f;
+        moveValue = 0.01f;
         SetPoint();
     }
 
