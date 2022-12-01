@@ -28,6 +28,7 @@ public class FloorWeapon : Weapon
         
         attSpeed = 4f;
         attDelay = 0;
+        level = 1;
     }
 
     // Update is called once per frame

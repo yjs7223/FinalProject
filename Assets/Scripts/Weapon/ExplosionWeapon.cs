@@ -27,6 +27,7 @@ public class ExplosionWeapon : Weapon
         type = WeaponType.Explosion;
         attSpeed = 4f;
         attDelay = 0;
+        level = 1;
     }
 
     void Update()

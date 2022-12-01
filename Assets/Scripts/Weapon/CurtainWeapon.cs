@@ -26,6 +26,7 @@ public class CurtainWeapon : Weapon
         bullet = Resources.Load<Bullet>("Prefabs/Bullet/CurtainBullet");
         type = WeaponType.Curtain;
         isCurtain = false;
+        level = 1;
     }
 
     // Update is called once per frame

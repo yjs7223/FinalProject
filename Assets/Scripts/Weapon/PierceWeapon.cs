@@ -25,6 +25,7 @@ public class PierceWeapon : Weapon
         type = WeaponType.Pierce;
         attSpeed = 3f;
         attDelay = 0;
+        level = 1;
     }
 
 

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public EnemyCreater ec;
     public UIManager uim;
+    public LevelUP lu;
     //public Weapon weapon;
     //public Item item;
 
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     /// 본인 인스턴스를 가질변수
     /// </summary>
     static GameManager instance;
+
     /// <summary>
     /// 게임매니저 인스턴스를 가져오는 함수
     /// </summary>

@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public enum WeaponType
     {
-        Normal = 0,
+        Normal = 1,
         Explosion,
         Pierce,
         Curtain,
@@ -24,6 +24,7 @@ public class Weapon : MonoBehaviour
     public WeaponType type;
     public float attSpeed;
     public float attDelay;
+    public int level;
 
     public virtual void Attack()
     {

@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         exp = 0;
         level = 1;
         hp = 20;
-        weapons.Add(Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/PierceWeapon"),transform));
+        weapons.Add(Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/NormalWeapon"), transform));
         weapons[0].transform.position = transform.position;
     }
 
@@ -86,6 +86,8 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("LevelUP");
                 level++;
+                //레벨업함수
+                gm.lu.levelUp();
                 exp = 0;
             }
             Destroy(collision.gameObject);

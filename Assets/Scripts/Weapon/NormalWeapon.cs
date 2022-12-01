@@ -26,6 +26,7 @@ public class NormalWeapon : Weapon
         type = WeaponType.Normal;
         attSpeed = 1f;
         attDelay = 0;
+        level = 1;
     }
 
     void Update()
