@@ -31,6 +31,38 @@ public class Weapon : MonoBehaviour
         Debug.Log("attack");
     }
 
+    public static void AddWeapon(WeaponType t)
+    {
+        switch (t)
+        {
+            case WeaponType.Normal:
+                GameManager.GetInstance().player.weapons.Add(
+            Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/NormalWeapon"),
+            GameManager.GetInstance().player.transform));
+                break;
+            case WeaponType.Explosion:
+                GameManager.GetInstance().player.weapons.Add(
+            Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/ExplosionWeapon"),
+            GameManager.GetInstance().player.transform));
+                break;
+            case WeaponType.Pierce:
+                GameManager.GetInstance().player.weapons.Add(
+            Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/PierceWeapon"),
+            GameManager.GetInstance().player.transform));
+                break;
+            case WeaponType.Curtain:
+                GameManager.GetInstance().player.weapons.Add(
+            Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/CurtainWeapon"),
+            GameManager.GetInstance().player.transform));
+                break;
+            case WeaponType.Floor:
+                GameManager.GetInstance().player.weapons.Add(
+            Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/FloorWeapon"),
+            GameManager.GetInstance().player.transform));
+                break;
+        }
+    }
+
     void Start()
     {
         gm = GameManager.GetInstance();

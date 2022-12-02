@@ -16,10 +16,11 @@ public class Item : MonoBehaviour
     public ItemType Itype;
     public Rigidbody2D rb;
     public GameManager gm;
+    public float dragRange;
 
     public void DraggedItem()
     {
-        if(Vector3.Distance(transform.position, gm.player.transform.position) <= 1)
+        if(Vector3.Distance(transform.position, gm.player.transform.position) <= dragRange)
         {
             Vector3 targetpos = gm.player.transform.position - transform.position;
             targetpos.Normalize();
@@ -29,7 +30,7 @@ public class Item : MonoBehaviour
 
     void Start()
     {
-        
+        dragRange = 1;
     }
 
     // Update is called once per frame

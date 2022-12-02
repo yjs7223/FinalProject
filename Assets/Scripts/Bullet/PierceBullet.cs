@@ -24,11 +24,13 @@ public class PierceBullet : Bullet
 
         if(collision.tag == "Vertical")
         {
+            Debug.Log("vertical bounce");
             targetpos.x *= -1;
         }
 
         if(collision.tag == "Horizontal")
         {
+            Debug.Log("horizontal bounce");
             targetpos.y *= -1;
         }
     }

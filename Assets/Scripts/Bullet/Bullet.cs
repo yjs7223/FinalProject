@@ -39,6 +39,8 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public int bnum;
 
+    public float d;
+
     /// <summary>
     /// 탄막의 이동함수(기본형)
     /// </summary>
@@ -50,6 +52,8 @@ public class Bullet : MonoBehaviour
         transform.rotation = r;*/
         targetpos.Normalize();
         rb.MovePosition(transform.position + (targetpos * speed * Time.deltaTime));
+        /*rb.velocity = targetpos * speed;
+        rb.AddForce(targetpos, ForceMode2D.Impulse);*/
 
         if (transform.position == targetpos)
         {
@@ -91,6 +95,7 @@ public class Bullet : MonoBehaviour
         }
 
         float dis1 = Vector3.Distance(gm.player.transform.position, gm.ec.enemyList[0].transform.position);
+        Debug.Log($"dis1 = {dis1}");
         target = gm.ec.enemyList[0];
 
         if (gm.ec.enemyList.Count < 2 || gm.ec.enemyList[1] == null)
@@ -116,6 +121,11 @@ public class Bullet : MonoBehaviour
                 target = gm.ec.enemyList[i];
                 dis1 = dis2;
             }
+        }
+
+        if(dis1 > 5f && dis2 > 5f)
+        {
+            target = null;
         }
 
     }

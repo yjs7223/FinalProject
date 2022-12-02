@@ -8,6 +8,7 @@ public class ExpItem : Item
     void Start()
     {
         exp = 1;
+        dragRange = 1;
         gm = GameManager.GetInstance();
         rb = GetComponent<Rigidbody2D>();
         Itype = ItemType.EXP;

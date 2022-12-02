@@ -334,6 +334,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242775870}
   m_CullTransparentMesh: 1
+--- !u!1 &280954126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4242113484727508490, guid: fe8d757122b2a1f4d819e78851653e9c, type: 3}
+  m_PrefabInstance: {fileID: 5780977975868861608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &283537627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6704764170504920311, guid: fe8d757122b2a1f4d819e78851653e9c, type: 3}
+  m_PrefabInstance: {fileID: 5780977975868861608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &337956493
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,7 +594,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 489980342}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 770046897}
+        m_TargetAssemblyTypeName: LevelUP, Assembly-CSharp
+        m_MethodName: onClicktiButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &489980342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,7 +804,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 504137121}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 770046897}
+        m_TargetAssemblyTypeName: LevelUP, Assembly-CSharp
+        m_MethodName: onClicksiButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &504137121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1711,7 +1745,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1223823296}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 770046897}
+        m_TargetAssemblyTypeName: LevelUP, Assembly-CSharp
+        m_MethodName: onClickfiButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1223823296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1750,6 +1796,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223823293}
   m_CullTransparentMesh: 1
+--- !u!1 &1262131979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6718292946593515313, guid: fe8d757122b2a1f4d819e78851653e9c, type: 3}
+  m_PrefabInstance: {fileID: 5780977975868861608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1400953175
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,6 +2071,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401505883}
   m_CullTransparentMesh: 1
+--- !u!1 &1416656004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4110705715885005621, guid: fe8d757122b2a1f4d819e78851653e9c, type: 3}
+  m_PrefabInstance: {fileID: 5780977975868861608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1431819634
 GameObject:
   m_ObjectHideFlags: 0
@@ -3486,6 +3542,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 889030996184581625, guid: fe8d757122b2a1f4d819e78851653e9c, type: 3}
+      propertyPath: m_Offset.y
+      value: 7.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5780977976848754467, guid: fe8d757122b2a1f4d819e78851653e9c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3534,6 +3594,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8986172878261561326, guid: fe8d757122b2a1f4d819e78851653e9c, type: 3}
+      propertyPath: top
+      value: 
+      objectReference: {fileID: 280954126}
+    - target: {fileID: 8986172878261561326, guid: fe8d757122b2a1f4d819e78851653e9c, type: 3}
+      propertyPath: left
+      value: 
+      objectReference: {fileID: 283537627}
+    - target: {fileID: 8986172878261561326, guid: fe8d757122b2a1f4d819e78851653e9c, type: 3}
+      propertyPath: right
+      value: 
+      objectReference: {fileID: 1416656004}
+    - target: {fileID: 8986172878261561326, guid: fe8d757122b2a1f4d819e78851653e9c, type: 3}
+      propertyPath: bottom
+      value: 
+      objectReference: {fileID: 1262131979}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: fe8d757122b2a1f4d819e78851653e9c, type: 3}
