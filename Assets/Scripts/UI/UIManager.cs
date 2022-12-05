@@ -9,7 +9,11 @@ public class UIManager : MonoBehaviour
     public GameManager gm;
     public TextMeshProUGUI levelText;
     public Slider expSlider;
+    public Slider hpSlider;
     public TextMeshProUGUI TimerText;
+
+    public GameObject defeatUI;
+    public GameObject victoryUI;
 
     public float nowtime;
     public float oldtime;
@@ -28,6 +32,7 @@ public class UIManager : MonoBehaviour
             expSlider.fillRect.gameObject.SetActive(true);
         }
         expSlider.value = gm.player.exp / 10;
+        hpSlider.value = gm.player.hp / 20;
 
         //시간만들기
         TimeCheck();
@@ -70,13 +75,28 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        if(second == 0 && oldtime == nowtime)
+        {
+            if (minute != 10)
+            {
+                gm.ec.EnemyWave();
+            }
+        }
+
+        if(minute == 10)
+        {
+            Time.timeScale = 0f;
+            gm.ec.createDelay = 100f;
+            victoryUI.SetActive(true);
+        }
+
     }
 
     void Start()
     {
         gm = GameManager.GetInstance();
         gm.uim = this;
-        nowtime = 0;
+        nowtime = 0.9f;
         oldtime = 0;
         second = 0;
         minute = 0;

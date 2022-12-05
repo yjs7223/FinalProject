@@ -10,6 +10,9 @@ public class FloorBullet : Bullet
     /// 장판 오브젝트
     /// </summary>
     public GameObject floor;
+
+    public float fAtt;
+
     /// <summary>
     /// 베지어 곡선을 사용할 변수
     /// </summary>
@@ -59,6 +62,7 @@ public class FloorBullet : Bullet
         if (moveValue >= 1f)
         {
             GameObject f = Instantiate(floor);
+            f.GetComponent<Floor>().floorAtt = fAtt;
             f.transform.position = transform.position;
             Destroy(gameObject);
         }

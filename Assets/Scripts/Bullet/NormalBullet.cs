@@ -32,7 +32,6 @@ public class NormalBullet : Bullet
         }
         speed = 30f;
         rspeed = 10f;
-        att = 5;
 
         //탄막의 방향 설정
         BulletRotate();

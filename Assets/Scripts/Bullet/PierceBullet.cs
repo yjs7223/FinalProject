@@ -48,8 +48,6 @@ public class PierceBullet : Bullet
         }
         speed = 20f;
         rspeed = 10f;
-        att = 5;
-        pierceNum = 2;
         //탄막의 방향 설정
         BulletRotate();
 

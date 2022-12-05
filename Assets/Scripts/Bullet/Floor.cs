@@ -19,6 +19,10 @@ public class Floor : MonoBehaviour
             {
                 delay = 0f;
                 collision.GetComponent<Enemy>().hp -= floorAtt;
+                if (collision.GetComponent<Enemy>().hp <= 0)
+                {
+                    collision.GetComponent<Enemy>().isDie = true;
+                }
                 Debug.Log($"floor att | Enemy HP : {collision.GetComponent<Enemy>().hp}");
             }
         }
@@ -55,7 +59,6 @@ public class Floor : MonoBehaviour
         }
             
         Destroy(gameObject, 6f);
-        floorAtt = 3;
         a = 1;
         isupa = false;
     }

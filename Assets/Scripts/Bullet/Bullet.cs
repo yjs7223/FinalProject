@@ -95,7 +95,7 @@ public class Bullet : MonoBehaviour
         }
 
         float dis1 = Vector3.Distance(gm.player.transform.position, gm.ec.enemyList[0].transform.position);
-        Debug.Log($"dis1 = {dis1}");
+        
         target = gm.ec.enemyList[0];
 
         if (gm.ec.enemyList.Count < 2 || gm.ec.enemyList[1] == null)
@@ -142,7 +142,7 @@ public class Bullet : MonoBehaviour
             targetpos = target.transform.position - transform.position;
         }
         float angle = Mathf.Atan2(targetpos.y, targetpos.x) * Mathf.Rad2Deg;
-        Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.right);
+        Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.up);
         Quaternion r = Quaternion.Slerp(transform.rotation, angleAxis, rspeed * Time.deltaTime);
         transform.rotation = r;
     }

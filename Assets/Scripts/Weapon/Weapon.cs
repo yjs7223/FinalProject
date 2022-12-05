@@ -24,13 +24,30 @@ public class Weapon : MonoBehaviour
     public WeaponType type;
     public float attSpeed;
     public float attDelay;
+    public float weaponAtt;
     public int level;
+    public int bulletnum;
 
+    /// <summary>
+    /// 레벨업 후 수치변경을 위한 함수
+    /// </summary>
+    public virtual void WeaponLevelUp()
+    {
+        Debug.Log("WeaponLevelUp");
+    }
+
+    /// <summary>
+    /// 공격처리를 위한 함수
+    /// </summary>
     public virtual void Attack()
     {
         Debug.Log("attack");
     }
 
+    /// <summary>
+    /// 무기추가를 위한 함수
+    /// </summary>
+    /// <param name="t">추가할 무기의 종류</param>
     public static void AddWeapon(WeaponType t)
     {
         switch (t)

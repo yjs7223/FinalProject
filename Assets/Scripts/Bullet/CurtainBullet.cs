@@ -38,7 +38,6 @@ public class CurtainBullet : Bullet
             rb = GetComponent<Rigidbody2D>();
         }
         damageDelay = 1;
-        att = 4;
     }
 
     // Update is called once per frame

@@ -52,8 +52,7 @@ public class Player : MonoBehaviour
         exp = 0;
         level = 1;
         hp = 20;
-        Weapon.AddWeapon(Weapon.WeaponType.Pierce);
-        //weapons.Add(Instantiate(Resources.Load<Weapon>("Prefabs/Weapon/NormalWeapon"), transform));
+        Weapon.AddWeapon(Weapon.WeaponType.Normal);
         weapons[0].transform.position = transform.position;
     }
 
@@ -71,6 +70,11 @@ public class Player : MonoBehaviour
             if (damageDelay > 1)
             {
                 hp -= collision.GetComponent<Enemy>().att;
+                if(hp <= 0)
+                {
+                    Time.timeScale = 0f;
+                    gm.uim.defeatUI.SetActive(true);
+                }
                 damageDelay = 0;
                 Debug.Log($"Damaged | Player HP : {hp}");
             }
@@ -86,7 +90,10 @@ public class Player : MonoBehaviour
             if(exp >= 10)
             {
                 Debug.Log("LevelUP");
-                level++;
+                if(level < 31)
+                {
+                    level++;
+                }
                 //레벨업함수
                 gm.lu.levelUp();
                 exp = 0;

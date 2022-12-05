@@ -22,29 +22,29 @@ public class BackGround : MonoBehaviour
 
     public void BackgroundMove()
     {
-        if (gm.player.transform.position.x - transform.position.x > 5)
+        if (gm.player.transform.position.x - transform.position.x > 3.75f)
         {
             Vector3 temppos = transform.position;
-            temppos.x += 5;
+            temppos.x += 3.75f;
             transform.position = temppos;
         }
-        else if (gm.player.transform.position.x - transform.position.x < -5)
+        else if (gm.player.transform.position.x - transform.position.x < -3.75f)
         {
             Vector3 temppos = transform.position;
-            temppos.x -= 5;
+            temppos.x -= 3.75f;
             transform.position = temppos;
         }
 
-        if (gm.player.transform.position.y - transform.position.y > 5)
+        if (gm.player.transform.position.y - transform.position.y > 3.75f)
         {
             Vector3 temppos = transform.position;
-            temppos.y += 5;
+            temppos.y += 3.75f;
             transform.position = temppos;
         }
-        else if (gm.player.transform.position.y - transform.position.y < -5)
+        else if (gm.player.transform.position.y - transform.position.y < -3.75f)
         {
             Vector3 temppos = transform.position;
-            temppos.y -= 5;
+            temppos.y -= 3.75f;
             transform.position = temppos;
         }
     }

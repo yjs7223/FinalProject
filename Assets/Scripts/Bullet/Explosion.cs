@@ -22,7 +22,6 @@ public class Explosion : MonoBehaviour
 
     void Start()
     {
-        explostionAtt = 5f;
         Destroy(gameObject, 0.2f);
     }
 

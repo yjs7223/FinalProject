@@ -4,18 +4,49 @@ using UnityEngine;
 
 public class FloorWeapon : Weapon
 {
-    
     public override void Attack()
     {
         attDelay += Time.deltaTime;
         if (attDelay >= attSpeed)
         {
-            Debug.Log("floor attack");
-            Bullet b = Instantiate(bullet);
-            Vector3 temppos = transform.position;
-            temppos.z = 0.1f;
-            b.transform.position = temppos;
+            for (int i = 0; i < bulletnum; i++)
+            {
+                Debug.Log("floor attack");
+                Bullet b = Instantiate(bullet);
+                Vector3 temppos = transform.position;
+                temppos.z = 0.1f;
+                b.transform.position = temppos;
+                b.GetComponent<FloorBullet>().fAtt = weaponAtt;
+            }
             attDelay = 0;
+        }
+    }
+
+    public override void WeaponLevelUp()
+    {
+        level++;
+        if (level >= 6)
+        {
+            level = 6;
+        }
+        switch (level)
+        {
+            case 2:
+                bulletnum = 2;
+                break;
+            case 3:
+                weaponAtt = 9;
+                break;
+            case 4:
+                bulletnum = 3;
+                break;
+            case 5:
+                weaponAtt = 15;
+                break;
+            case 6:
+                bulletnum = 4;
+                break;
+
         }
     }
 
@@ -23,11 +54,16 @@ public class FloorWeapon : Weapon
     void Start()
     {
         gm = GameManager.GetInstance();
-        bullet = Resources.Load<Bullet>("Prefabs/Bullet/FloorBullet");
+        if(bullet == null) 
+        {
+            bullet = Resources.Load<Bullet>("Prefabs/Bullet/FloorBullet");
+        }
+        
         type = WeaponType.Floor;
         
         attSpeed = 4f;
         attDelay = 0;
+        bulletnum = 1;
         level = 1;
     }
 

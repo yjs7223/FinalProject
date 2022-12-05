@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExplosionBullet : Bullet
 {
     public GameObject explosion;
-
+    public float exAtt;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,6 +19,7 @@ public class ExplosionBullet : Bullet
             Debug.Log($"explosion bullet att | Enemy Hp : {collision.GetComponent<Enemy>().hp}");
             GameObject e = Instantiate(explosion);
             e.transform.position = gameObject.transform.position;
+            e.GetComponent<Explosion>().explostionAtt = exAtt;
             Destroy(gameObject);
         }
     }
@@ -40,7 +41,6 @@ public class ExplosionBullet : Bullet
         }
         speed = 10f;
         rspeed = 10f;
-        att = 10;
 
         //탄막의 방향 설정
         BulletRotate();

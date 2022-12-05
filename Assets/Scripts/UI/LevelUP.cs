@@ -20,10 +20,14 @@ public class LevelUP : MonoBehaviour
     public TextMeshProUGUI sItemDemo;
     public TextMeshProUGUI tItemDemo;
 
+    public bool isLevelUp;
+
     public void levelUp()
     {
         Time.timeScale = 0;
         levelUpUi.SetActive(true);
+        isLevelUp = true;
+        gm.ec.createDelay = (30 - gm.player.level) / 10;
 
         first = (Weapon.WeaponType)Random.Range(1, 6);
 
@@ -141,7 +145,7 @@ public class LevelUP : MonoBehaviour
 
         if(ishave)
         {
-            gm.player.weapons[wpnum].level++;
+            gm.player.weapons[wpnum].WeaponLevelUp();
         }
         else
         {
@@ -150,7 +154,7 @@ public class LevelUP : MonoBehaviour
         levelUpUi.SetActive(false);
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02F * Time.timeScale;
-
+        isLevelUp = false;
     }
 
     /// <summary>
@@ -171,7 +175,7 @@ public class LevelUP : MonoBehaviour
 
         if (ishave)
         {
-            gm.player.weapons[wpnum].level++;
+            gm.player.weapons[wpnum].WeaponLevelUp();
         }
         else
         {
@@ -180,6 +184,7 @@ public class LevelUP : MonoBehaviour
         levelUpUi.SetActive(false);
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02F * Time.timeScale;
+        isLevelUp = false;
     }
 
     /// <summary>
@@ -200,7 +205,7 @@ public class LevelUP : MonoBehaviour
 
         if (ishave)
         {
-            gm.player.weapons[wpnum].level++;
+            gm.player.weapons[wpnum].WeaponLevelUp();
         }
         else
         {
@@ -209,6 +214,7 @@ public class LevelUP : MonoBehaviour
         levelUpUi.SetActive(false);
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02F * Time.timeScale;
+        isLevelUp = false;
     }
 
     void Start()
